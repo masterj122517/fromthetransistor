@@ -1,0 +1,11 @@
+module uart_tx(
+  input wire clk;
+  input wire tick;
+  input wire tx_start;
+  input reg data_int;
+);
+
+
+endmodule
+
+

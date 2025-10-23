@@ -435,3 +435,43 @@ $ system task
 $ 开头的都是 仿真/系统任务
 
 不能综合成硬件，只能在 testbench 或仿真中使用
+
+input：只读 → wire
+
+output：如果在 always 块中赋值 → reg
+
+output：如果用 assign 组合逻辑 → wire
+
+--------
+
+
+always @(posedge clk) 的作用与性质
+作用
+
+always @(posedge clk) 表示在时钟上升沿触发
+
+常用于实现寄存器型逻辑（同步逻辑）
+
+每个时钟上升沿都会执行 always 里的代码
+
+性质
+
+硬件触发器对应
+
+对应 D 触发器或寄存器阵列
+
+reg 类型信号在时钟沿更新
+
+状态机基础
+
+状态机状态寄存器、bit_index、shift_reg 等都放在 always @(posedge clk) 里更新
+
+clk 只是驱动
+
+实际发送数据的节奏通常由 tick 控制
+
+clk 决定逻辑检查频率，但输出更新只在 tick 条件满足时发生
+
+也有typedef enum {} name;
+
+还有struct 什么的
