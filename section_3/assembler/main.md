@@ -1,4 +1,3 @@
-## We are going to write a assembler in python
-
+So let's learn arm assembler first
 
 
