@@ -1,7 +1,3 @@
-- [x] So let's learn arm assembler first 
-
-
-How to write a assembler in python 
 
 
 | 阶段                   | 输入       | 输出       | 功能                    |
@@ -12,4 +8,27 @@ How to write a assembler in python
 | **4. 输出（Writing）**   | 机器码列表    | 文件       | 写入 `.bin` 或 `.obj` 文件 |
 
 
+
+Lex 
+
+接受内容
+
+输出为Tokens
+
+先定义Tokens有哪些
+
+TOKEN_SPEC = [
+    ("COMMENT" , r"" )
+    ("REGISTER", )
+    ("INSTR", )
+    ("CONDITION")
+    ("SEP")
+    ("SKIP", )
+    ("IMM", )
+    ("LABEL") ;; normal label 
+    ("LABEL_DEF") ;; end with : 
+    ("NEWLINE")
+    ("MISMATH")
+
+]
 
