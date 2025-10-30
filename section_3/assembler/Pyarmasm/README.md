@@ -32,3 +32,17 @@ TOKEN_SPEC = [
 
 ]
 
+Parser: from tokens -> AST 
+
+Program
+ ├── InstrNode(opcode="MOV", operands=[
+ │      RegNode("R0"),
+ │      ImmNode(1)
+ │  ])
+ └── InstrNode(opcode="ADD", operands=[
+        RegNode("R1"),
+        RegNode("R0"),
+        ImmNode(2)
+    ])
+
+
