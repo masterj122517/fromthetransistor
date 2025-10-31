@@ -1,6 +1,9 @@
 from lexer import Lexer 
 
-INPUT = "ADD R0, R1, R2"
+INPUT = '''
+ADD R0, R1, R2
+MOV R0, #1
+'''
 
 lexer = Lexer()
 

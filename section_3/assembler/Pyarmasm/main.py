@@ -1,7 +1,9 @@
 from parser import Parser
 
-
-INPUT = "ADD R0, R1, R2"
+INPUT = '''
+MOV R0, R1, R2
+MOV R0, R1, R2
+'''
 
 parser = Parser(INPUT)
 
