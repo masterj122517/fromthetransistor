@@ -1,4 +1,6 @@
 
+# I would call making a hello world and make a verilog cpu that could run the "hello world"  is a win
+
 
 | 阶段                   | 输入       | 输出       | 功能                    |
 | -------------------- | -------- | -------- | --------------------- |
@@ -35,6 +37,13 @@ TOKEN_SPEC = [
 Parser: from tokens -> AST 
 
 Program
+
+ ├── InstrNode(opcode="MOV", operands=[
+ │      RegNode("R0"),
+ │      ImmNode(1)
+ │  ])
+
+
  ├── InstrNode(opcode="MOV", operands=[
  │      RegNode("R0"),
  │      ImmNode(1)
@@ -44,5 +53,43 @@ Program
         RegNode("R0"),
         ImmNode(2)
     ])
+
+Parser 
+
+take the tokens -> AST
+
+How?
+
+写一个遍历tokens的方法
+写一个更新当前指针位置的方法
+
+
+# from Tokens -> AST
+
+# Program(Instructions) -> Instruction[op, operands] -> parse_operand
+
+
+ask myself some problems 
+how to turn tokens in to ast
+simple, write some ast classes and use recursion to put Instructions into program , put instruction to the instructions list, parse opcode(MOV) and operands(REG, IMM...)
+The final Program(instructions) is the ast tree
+
+how to turn ast input machine code 
+
+PC program counter(下一条要执行的指令的地址)
+
+CPU 工作流程
+1. 从内存地址 = PC 的位置取指令
+2. 执行该指令
+3. PC += 指令长度
+4. 回到步骤 1
+
+PC 决定 CPU 去哪里取指令
+
+PC 决定程序的执行顺序
+
+So i need to record pc
+
+当前指令的 PC = 前面所有指令长度的累加
 
 
