@@ -18,10 +18,20 @@ module simple_cpu(
 
     initial begin
         $readmemh("program.mem", rom);
+
+        for (i = 0; i < 1024; i = i + 1) begin
+          if (rom[i] === 8'hxx || rom[i] === 8'hXX) begin
+            rom[i] = 8'h00;
+          end
+        end
+
         pc = 0;
 
         for (i = 0; i < 16; i = i + 1)
             regfile[i] = 0;
+
+        for (i = 0; i < 100; i = i + 1)
+           $display("%0d: %02x", i, rom[i]);
     end
 
 
@@ -66,7 +76,8 @@ module simple_cpu(
         8'h10: begin
             // B offset
             b1 = rom[pc + 1];
-            pc <= pc + 2 + $signed(b1); // $signed 让b1有符号
+            // 做了符号扩展，保证计算的正确
+            pc <= pc + 2 + $signed({{24{b1[7]}}, b1});
         end
 
         8'hff: begin
@@ -80,6 +91,7 @@ module simple_cpu(
         end
 
         endcase
+      // $display("PC=%d opcode=%02x", pc, opcode);
     end
 
 endmodule

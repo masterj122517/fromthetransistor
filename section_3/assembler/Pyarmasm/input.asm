@@ -1,4 +1,5 @@
 ; hello.asm - 用 MOV + OUT + HALT 打印 Hello World
+hoop:
 MOV R0, #72
 OUT R0
 MOV R0, #101
@@ -23,4 +24,4 @@ MOV R0, #100
 OUT R0
 MOV R0, #10
 OUT R0
-HALT
+B hoop
